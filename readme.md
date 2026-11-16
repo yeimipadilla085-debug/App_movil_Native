@@ -22,6 +22,10 @@ npx expo install --check
 
 npx expo start --web
 
+npx expo start --tunnel
+
+npx expo start --tunnel ngrok
+
 Si ya instalamos las dependencias asegurarse que el packjson tenga todas las dependendencias
 
 {
