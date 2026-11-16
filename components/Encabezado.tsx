@@ -7,7 +7,7 @@ type Props = {
   nombreIcono?: keyof typeof Ionicons.glyphMap;
 };
 
-const Encabezado = ({ subtitulo, nombreIcono = 'person' }: Props) => {
+const Encabezado = ({ nombreIcono = 'person' }: Props) => {
   return (
     <View style={estilos.contenedor}>
       <View style={estilos.anillo}>
@@ -16,7 +16,7 @@ const Encabezado = ({ subtitulo, nombreIcono = 'person' }: Props) => {
         </View>
       </View>
       <Text style={estilos.nombre}>Santiago Buitrago Goyeneche</Text>
-      <Text style={estilos.subtitulo}>{subtitulo}</Text>
+      <Text style={estilos.subtitulo}>Tecnologo en Análisis y Desarrollo de Software y Ilustrador de internet</Text>
     </View>
   );
 };
@@ -33,8 +33,8 @@ const estilos = StyleSheet.create({
     marginBottom: 14,
   },
   avatar: {
-    width: 96,
-    height: 96,
+    width: 98,
+    height: 98,
     borderRadius: 48,
     backgroundColor: colores.tarjeta,
     alignItems: 'center',
