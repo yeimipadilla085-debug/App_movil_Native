@@ -2,7 +2,7 @@
 
 # Santiago Buitrago Goyeneche
 
-## Verificamso el pack json  que tenga las dependencias:
+## Dependencias:
 
 npm init -y - saca los pack.json 
 
@@ -25,6 +25,8 @@ npx expo start --web
 npx expo start --tunnel
 
 npx expo start --tunnel ngrok
+
+## VERFICAR: 
 
 Si ya instalamos las dependencias asegurarse que el packjson tenga todas las dependendencias
 
@@ -57,3 +59,13 @@ Si ya instalamos las dependencias asegurarse que el packjson tenga todas las dep
   }
 }
 
+## Notas de san 
+
+Cree la carpeta Encabezado para facilitar el perfil en la navegacion de la pagina,
+En la creacion de la carpeta constants cremos dos archivos importantes para mensajes y color de la pagina.
+
+
+Errores que tuve durante el desarollo: 
+
+-Los botones no mostraban las paginas por falta de dependencias o imports. 
+-No incluir el gitignore provocando que la aplicacion se pesada en el git
