@@ -13,13 +13,35 @@ const MiBoton = ({ textoBoton, nombreIcono, colorBoton, onPress }: Props) => {
   return (
     <Pressable
       onPress={onPress}
-      style={({ pressed }) => [estilos.boton, pressed && estilos.presionado]}
+      style={({ pressed }) => [
+        estilos.boton,
+        pressed && { backgroundColor: colorBoton, borderColor: colorBoton },
+      ]}
     >
-      <View style={[estilos.chip, { backgroundColor: colorBoton + '26' }]}>
-        <Ionicons name={nombreIcono} size={20} color={colorBoton} />
-      </View>
-      <Text style={estilos.texto}>{textoBoton}</Text>
-      <Ionicons name="chevron-forward" size={18} color={colores.textoSuave} />
+      {({ pressed }) => (
+        <>
+          <View
+            style={[
+              estilos.chip,
+              { backgroundColor: pressed ? '#FFFFFF33' : colorBoton + '26' },
+            ]}
+          >
+            <Ionicons
+              name={nombreIcono}
+              size={20}
+              color={pressed ? colores.fondo : colorBoton}
+            />
+          </View>
+          <Text style={[estilos.texto, pressed && { color: colores.fondo }]}>
+            {textoBoton}
+          </Text>
+          <Ionicons
+            name="chevron-forward"
+            size={18}
+            color={pressed ? colores.fondo : colores.textoSuave}
+          />
+        </>
+      )}
     </Pressable>
   );
 };
@@ -37,7 +59,6 @@ const estilos = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
   },
-  presionado: { opacity: 0.7 },
   chip: {
     width: 38,
     height: 38,

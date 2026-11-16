@@ -1,7 +1,8 @@
-import { Alert, ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import Encabezado from '../../components/Encabezado';
 import TarjetaHobby from '../../components/TarjetaHobby';
 import { colores } from '../../constants/tema';
+import { mostrarAlerta } from '../../constants/alerta';
 
 const hobbies = [
   {
@@ -21,16 +22,16 @@ const hobbies = [
   {
     id: '3',
     nombre: 'Ciclismo',
-    descripcion: 'Rutas de montaña',
+    descripcion: 'Ciclo rutas',
     nombreIcono: 'bicycle-outline' as const,
-    detalle: 'Recorro rutas de montaña cada domingo con un grupo de amigos.',
+    detalle: 'Recorro rutas de ciudad cada domingo con mi padre.',
   },
   {
     id: '4',
     nombre: 'Lectura',
-    descripcion: 'Tecnología y ciencia ficción',
+    descripcion: 'Fantasía y ciencia ficción',
     nombreIcono: 'book-outline' as const,
-    detalle: 'Leo sobre tecnología, programación y novelas de ciencia ficción.',
+    detalle: 'Leo sobre fantasía y novelas de ciencia ficción. Como Rezero y Alien',
   },
 ];
 
@@ -45,7 +46,7 @@ const Hobbies = () => {
           nombre={h.nombre}
           descripcion={h.descripcion}
           nombreIcono={h.nombreIcono}
-          onPress={() => Alert.alert(h.nombre, h.detalle)}
+          onPress={() => mostrarAlerta(h.nombre, h.detalle)}
         />
       ))}
     </ScrollView>
