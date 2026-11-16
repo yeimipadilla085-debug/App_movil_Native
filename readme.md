@@ -1,10 +1,26 @@
 # App_movil_Native_San
 
+# Santiago Buitrago Goyeneche
 
+## Verificamso el pack json  que tenga las dependencias:
 
 npm init -y - saca los pack.json 
 
-## Verificamso el pack json  que tenga las dependencias: 
+npm install expo
+
+npx expo install
+
+npx expo-router
+
+npx create-expo-app@latest MiHojaDeVida --template tabs
+
+npm install react-dom@19.1.0
+
+npx expo install react-native-web @expo/metro-runtime
+
+npx expo install --check
+
+npx expo start --web
 
 Si ya instalamos las dependencias asegurarse que el packjson tenga todas las dependendencias
 
@@ -37,20 +53,3 @@ Si ya instalamos las dependencias asegurarse que el packjson tenga todas las dep
   }
 }
 
-
-
-npm install expo
-
-npx expo install
-
-npx expo-router
-
-npx create-expo-app@latest MiHojaDeVida --template tabs
-
-npm install react-dom@19.1.0
-
-npx expo install react-native-web @expo/metro-runtime
-
-npx expo install --check
-
-npx expo start --web

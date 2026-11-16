@@ -1,4 +1,4 @@
-import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Linking, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import Encabezado from '../../components/Encabezado';
 import MiBoton from '../../components/MiBoton';
@@ -6,6 +6,14 @@ import { colores, radio } from '../../constants/tema';
 
 const Inicio = () => {
   const router = useRouter();
+
+  const mostrarAlerta = (titulo: string, mensaje: string) => {
+  if (Platform.OS === 'web') {
+    window.alert(`${titulo}\n\n${mensaje}`);
+  } else {
+    Alert.alert(titulo, mensaje);
+  }
+};
 
   return (
     <ScrollView style={estilos.contenedor} contentContainerStyle={estilos.contenido}>
@@ -26,43 +34,32 @@ const Inicio = () => {
           textoBoton="Enviar correo"
           nombreIcono="mail"
           colorBoton="#F5C451"
-          onPress={() => Alert.alert('Contacto', 'Correo: pepito.perez@misena.edu.co')}
+          onPress={() => mostrarAlerta('Contacto', 'Correo: pepito.perez@misena.edu.co')}
         />
         <MiBoton
-          textoBoton="Llamar"
-          nombreIcono="call"
-          colorBoton="#6EA8FE"
-          onPress={() => Alert.alert('Contacto', 'Teléfono: +57 300 123 4567')}
+        textoBoton="Llamar"
+        nombreIcono="call"
+        colorBoton="#6EA8FE"
+        onPress={() => mostrarAlerta('Contacto', 'Teléfono: 3001436277')}
         />
-        <MiBoton
-          textoBoton="Ver perfil de LinkedIn"
-          nombreIcono="logo-linkedin"
-          colorBoton="#3B9AE1"
-          onPress={() => Alert.alert('LinkedIn', 'linkedin.com/in/pepito-perez')}
-        />
-        <MiBoton
-          textoBoton="Facebook"
-          nombreIcono="logo-facebook"
-          colorBoton="#5B8DEF"
-          onPress={() => Alert.alert('Facebook', 'facebook.com/pepito.perez')}
-        />
+    
         <MiBoton
           textoBoton="Instagram"
           nombreIcono="logo-instagram"
           colorBoton="#F06A9B"
-          onPress={() => Alert.alert('Instagram', '@pepito.perez')}
+          onPress={() => Linking.openURL('https://www.instagram.com/sanprox_art/')}
         />
         <MiBoton
           textoBoton="TikTok"
           nombreIcono="logo-tiktok"
           colorBoton="#C9D3E0"
-          onPress={() => Alert.alert('TikTok', '@pepito.perez')}
+          onPress={() => Linking.openURL('https://www.tiktok.com/@sanproxart')}
         />
         <MiBoton
-          textoBoton="Repositorios en GitHub"
-          nombreIcono="logo-github"
-          colorBoton="#A78BFA"
-          onPress={() => Alert.alert('GitHub', 'github.com/pepito-perez/hoja-de-vida')}
+        textoBoton="Repositorios en GitHub"
+        nombreIcono="logo-github"
+        colorBoton="#A78BFA"
+        onPress={() => Linking.openURL('https://github.com/sanlith340-droid')}
         />
         <MiBoton
           textoBoton="Estudios"

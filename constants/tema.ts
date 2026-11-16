@@ -1,6 +1,6 @@
 export const colores = {
-  fondo: '#0E1A2B',
-  tarjeta: '#162840',
+  fondo: '#141c5c',
+  tarjeta: '#1e5368',
   borde: '#24405F',
   texto: '#E8EEF7',
   textoSuave: '#8FA3BC',
