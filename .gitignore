@@ -1,0 +1,46 @@
+# Dependencias
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Compilaciones nativas
+android/
+ios/
+*.apk
+*.aab
+*.ipa
+
+# Metro
+.metro-health-check*
+
+# Depuración
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Claves y certificados
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Variables de entorno (datos privados)
+.env
+.env*.local
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# TypeScript
+*.tsbuildinfo
