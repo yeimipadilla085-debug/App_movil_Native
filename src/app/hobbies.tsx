@@ -14,10 +14,10 @@ const hobbies = [
   },
   {
     id: '2',
-    nombre: 'Música',
-    descripcion: 'Rock Indie y Electronica',
-    nombreIcono: 'musical-notes-outline' as const,
-    detalle: 'Toco guitarra los fines de semana y estoy aprendiendo a producir música digital.',
+    nombre: 'Arte',
+    descripcion: 'Obras de arte y dibujo',
+    nombreIcono: 'brush-outline' as const,
+    detalle: 'Me gusta dibujar y crear historias con mis dibujos. ',
   },
   {
     id: '3',

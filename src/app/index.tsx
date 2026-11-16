@@ -4,16 +4,31 @@ import Encabezado from '../../components/Encabezado';
 import MiBoton from '../../components/MiBoton';
 import { colores, radio } from '../../constants/tema';
 
-const Inicio = () => {
-  const router = useRouter();
-
-  const mostrarAlerta = (titulo: string, mensaje: string) => {
+// Muestra los datos en una alerta. Si se pasa una url, ofrece abrirla.
+const mostrarDatos = (titulo: string, mensaje: string, url?: string) => {
   if (Platform.OS === 'web') {
-    window.alert(`${titulo}\n\n${mensaje}`);
+    if (url) {
+      if (window.confirm(`${titulo}\n\n${mensaje}\n\n¿Abrir el enlace?`)) {
+        Linking.openURL(url);
+      }
+    } else {
+      window.alert(`${titulo}\n\n${mensaje}`);
+    }
+    return;
+  }
+
+  if (url) {
+    Alert.alert(titulo, mensaje, [
+      { text: 'Cerrar', style: 'cancel' },
+      { text: 'Abrir', onPress: () => Linking.openURL(url) },
+    ]);
   } else {
     Alert.alert(titulo, mensaje);
   }
 };
+
+const Inicio = () => {
+  const router = useRouter();
 
   return (
     <ScrollView style={estilos.contenedor} contentContainerStyle={estilos.contenido}>
@@ -23,43 +38,59 @@ const Inicio = () => {
         <Text style={estilos.subtitulo}>Perfil profesional</Text>
         <Text style={estilos.parrafo}>
           Aprendiz del SENA apasionado por el desarrollo de aplicaciones móviles y web. Con
-          habilidades en  JavaScript, HTML5, Python y gestión de bases de datos
-          relacionales y no relacionales.
+          habilidades en JavaScript, HTML5, Python y gestión de bases de datos relacionales y no
+          relacionales.
         </Text>
       </View>
 
       <View style={estilos.seccion}>
         <Text style={estilos.subtitulo}>Contacto</Text>
+
         <MiBoton
           textoBoton="Enviar correo"
           nombreIcono="mail"
           colorBoton="#F5C451"
-          onPress={() => mostrarAlerta('Contacto', 'Correo: pepito.perez@misena.edu.co')}
+          onPress={() => mostrarDatos('Correo', 'santiagobui789@gmail.com')}
         />
         <MiBoton
-        textoBoton="Llamar"
-        nombreIcono="call"
-        colorBoton="#6EA8FE"
-        onPress={() => mostrarAlerta('Contacto', 'Teléfono: 3001436277')}
+          textoBoton="Llamar"
+          nombreIcono="call"
+          colorBoton="#6EA8FE"
+          onPress={() => mostrarDatos('Teléfono', '3001436277')}
         />
-    
+        <MiBoton
+          textoBoton="Facebook"
+          nombreIcono="logo-facebook"
+          colorBoton="#5B8DEF"
+          onPress={() =>
+            mostrarDatos('Facebook', 'facebook.com/tu-usuario', 'https://www.facebook.com/tu-usuario')
+          }
+        />
         <MiBoton
           textoBoton="Instagram"
           nombreIcono="logo-instagram"
           colorBoton="#F06A9B"
-          onPress={() => Linking.openURL('https://www.instagram.com/sanprox_art/')}
+          onPress={() =>
+            mostrarDatos('Instagram', '@sanprox_art', 'https://www.instagram.com/sanprox_art/')
+          }
         />
         <MiBoton
           textoBoton="TikTok"
           nombreIcono="logo-tiktok"
           colorBoton="#C9D3E0"
-          onPress={() => Linking.openURL('https://www.tiktok.com/@sanproxart')}
+          onPress={() => mostrarDatos('TikTok', '@sanproxart', 'https://www.tiktok.com/@sanproxart')}
         />
         <MiBoton
-        textoBoton="Repositorios en GitHub"
-        nombreIcono="logo-github"
-        colorBoton="#A78BFA"
-        onPress={() => Linking.openURL('https://github.com/sanlith340-droid')}
+          textoBoton="Repositorios en GitHub"
+          nombreIcono="logo-github"
+          colorBoton="#A78BFA"
+          onPress={() =>
+            mostrarDatos(
+              'GitHub',
+              'github.com/sanlith340-droid',
+              'https://github.com/sanlith340-droid'
+            )
+          }
         />
         <MiBoton
           textoBoton="Estudios"
